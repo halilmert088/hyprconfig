@@ -1,16 +1,18 @@
 {
   "layer": "top",
-  "position": "top",
-  "modules-right": ["wlr/workspaces"],
-  "modules-center": ["custom/music"], // Ortaya müzik modülünü ekledik
+  "position": "bottom",
+  "modules-right": [
+   "custom/power",
+   "battery",
+   "pulseaudio",
+   "network",
+   "bluetooth",
+   "tray"
+   ],
+  "modules-center": ["wlr/workspaces"], // Ortaya müzik modülünü ekledik
   "modules-left": [
-    "custom/power",
-    "battery",
-    "pulseaudio",
     "clock",
-    "tray",
-    "network",
-    "bluetooth"
+    "custom/music"
   ],
 
   "wlr/workspaces": {
@@ -19,7 +21,7 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}{volume}%",
+    "format": "{icon} {volume}%",
     "format-icons": {
         "muted": "",
         "30": "",
@@ -68,7 +70,7 @@
 
   "battery": {
     "format": "{icon} {capacity}%",
-    "format-charging": "󰢄", // Şarj oluyor ikon
+    "format-charging": "󰢄  {capacity}%", // Şarj oluyor ikon
     "format-plugged": "󰂅", // Cihaz fişe takılı çalışıyor ikon
     "states": {
       "warning": 30,
@@ -90,10 +92,9 @@
   },
 
  "custom/music": {
-   "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
-   "interval": 1,
+   "exec": "/home/mert/Kodlar/Shell/slide_music.sh",
+   "interval": 0.2,
    "format": "  {}", // Müzik ikonunu ve şarkı bilgisini gösterir
-   "max-length": 50, // Şarkı bilgisinin maksimum uzunluğunu ayarlar
    "on-click": "playerctl play-pause", // Tıklandığında çal/duraklat yapar
    "on-scroll-up": "playerctl next", // Yukarı kaydırıldığında sonraki şarkıya geçer
    "on-scroll-down": "playerctl previous" // Aşağı kaydırıldığında önceki şarkıya geçer

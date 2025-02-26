@@ -78,8 +78,7 @@
 
 #pulseaudio {
   color: @maroon;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  border-radius: 0px 0px 0px 0px;
 }
 
 #custom-music {
@@ -99,17 +98,15 @@
 }
 
 #tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
 }
 
 
 #network {
-  border-radius: 1rem 0px 0px 1rem;
+  border-radius: 0px 0px 0px 0px;
 }
  
 
 #bluetooth {
-  margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
+  border-radius: 0px 0px 0px 0px;
 }
