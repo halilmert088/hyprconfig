@@ -1,20 +1,19 @@
+cat config
 {
   "layer": "top",
-  "position": "bottom",
+  "position": "top",
   "modules-right": [
-    "custom/power",
+    "clock", 
     "pulseaudio",
     "network",
     "bluetooth",
-    "tray",
     "custom/vpn"
   ],
-  "modules-center": ["wlr/workspaces"],
+  "modules-center": ["custom/play", "custom/music"],
   "modules-left": [
-    "clock",
-    "custom/music"
+    "hyprland/workspaces"
   ],
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "format": "{icon}",
     "format-icons" : {
@@ -23,21 +22,18 @@
         }
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}",
+    "format-alt": "{icon} {volume}%",
     "format-icons": {
-      "muted": "",
-      "30": "",
-      "50": ""
-    }
+       "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
   },
   "clock": {
     "format": "{:%d/%m/%Y  %H:%M}",
-    "timezone": "Europe/Istanbul",
-    "on-scroll-up": "format-alt",
-    "on-scroll-down": "format-alt"
+    "timezone": "Europe/Istanbul"
   },
   "network": {
-    "interface": "enp3s0",
     "format": "{icon}",
     "format-icons": {
       "wifi": "",
@@ -48,28 +44,25 @@
   "bluetooth": {
     "format": "{icon}",
     "format-icons": {
-      "on": "󰂯",
+      "connected": "󰂯",
       "off": "󰂲",
-      "connected": "󰂱"
-    },
+      "default": "󰂳"
+   },
     "on-click": "blueman-manager"
-  },
-  "tray": {
-    "icon-size": 18,
-    "spacing": 8
-  },
-  "custom/power": {
-    "exec": "echo ",
-    "on-click": "~/.config/waybar/power_options.sh"
   },
   "custom/music": {
     "exec": "~/.config/waybar/slide_music.sh",
     "interval": 0.2,
-    "format": "  {}",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "format": "{}",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous"
   },
+  "custom/play": {
+   "format": "{}",
+   "exec": "~/.config/waybar/player_status.sh",
+   "interval": 1
+   },
   "custom/vpn": {
     "format": "{}",
     "exec": "~/.config/waybar/vpn_status.sh",
