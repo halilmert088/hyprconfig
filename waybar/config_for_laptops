@@ -1,18 +1,18 @@
 {
   "layer": "top",
-  "position": "bottom",
+  "position": "top",
   "modules-right": [
-    /*"custom/power",*/
+    "clock",
+    "custom/power",
     "pulseaudio",
     "battery",
     "network",
-    "bluetooth"
-    /*"custom/vpn"*/
+    "bluetooth",
+    "custom/vpn"
   ],
-  "modules-center": ["hyprland/workspaces"],
+  "modules-center": ["custom/music"],
   "modules-left": [
-    "clock",
-    "custom/music"
+    "hyprland/workspaces"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -74,29 +74,27 @@
     },
     "on-click": "blueman-manager"
   },
-/*
+
   "custom/power": {
     "exec": "echo ",
     "on-click": "~/.config/waybar/power_options.sh"
   },
-*/
 
    "custom/music": {
     "exec": "~/.config/waybar/slide_music.sh",
     "interval": 0.2,
     "format": "  {}",
 
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous"
   },
   
-/*
   "custom/vpn": {
     "format": "{}",
-    "exec": "~/.config/waybar/vpn_status.sh",
-    "on-click": "~/.config/waybar/vpn.sh",
+    "exec": "/home/mert/.config/waybar/vpn_status.sh",
+    "on-click": "/home/mert/.config/waybar/vpn.sh",
     "interval": 1
   }
-*/
+
 }
