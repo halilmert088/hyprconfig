@@ -2,17 +2,15 @@
   "layer": "top",
   "position": "top",
   "modules-right": [
-    "clock",
-    "custom/power",
     "pulseaudio",
     "battery",
     "network",
     "bluetooth",
     "custom/vpn"
   ],
-  "modules-center": ["custom/music"],
+  "modules-center": ["custom/music", "hyprland/workspaces"],
   "modules-left": [
-    "hyprland/workspaces"
+    "custom/power","clock"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -24,9 +22,8 @@
   },
  
    "battery": {
-    "format": "{icon}",
-    "format-alt" : "{icon} {capacity}%",
-    "format-charging": "󰂄", // Şarj oluyor ikon
+    "format" : "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄", // Şarj oluyor ikon
     "format-plugged": "󰂅", // Cihaz fişe takılı çalışıyor ikon
     "states": {
       "warning": 30,
@@ -47,8 +44,7 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}",
-    "format-alt": "{icon} {volume}%",
+    "format": "{volume}% {icon}",
     "format-icons": {
        "default": ["", "", ""]
     }
