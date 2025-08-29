@@ -1,30 +1,30 @@
-@import "mocha.css";
+@import "solitude.css";
 
 * {
  font-family: Ubuntu Mono Nerd Font;
  font-size: 17px;
- min-height: 0;
+ min-height: 7px;
 }
 
 #waybar {
- background: transparent;
- color: @text;
+ background: rgba(87, 158, 182, 0.2);
+ color: @two;
  margin: 5px 5px;
 }
 
 #workspaces button {
- color: @lavender;
+ color: @two;
  border-radius: 1rem;
  padding: 0.4rem;
 }
 
 #workspaces button.active {
- color: @sky;
+ color: @two;
  border-radius: 1rem;
 }
 
 #workspaces button:hover {
- color: @sapphire;
+ color: @five;
  border-radius: 1rem;
 }
 
@@ -38,30 +38,30 @@
 #bluetooth,
 #custom-power,
 #custom-vpn {
- background-color: @surface0;
+ background-color: @five;
  padding: 0.5rem 1rem;
  margin: 5px 0;
 }
 
 #clock {
- color: @blue;
- border-radius: 1rem 0px 0px 1rem;
+ color: @two;
+ border-radius: 0px 1rem 1rem 0px;
 }
 
 #battery {
- color: @green;
+ color: @two;
 }
 
 #battery.charging {
- color: @green;
+ color: @two;
 }
 
 #battery.warning:not(.charging) {
- color: @red;
+ color: @five;
 }
 
 #backlight {
- color: @yellow;
+ color: @three;
 }
 
 #backlight, #battery {
@@ -69,16 +69,18 @@
 }
 
 #pulseaudio {
- color: @maroon;
+ color: @two;
+ border-radius: 1rem 0px 0px 1rem;
 }
 
 #custom-music {
- color: @mauve;
+ color: @two;
  border-radius: 1rem;
 }
 
 #custom-power {
-   color: @red;
+   color: @two;
+   border-radius: 1rem 0px 0px 1rem;
 }
 
 #tray {
