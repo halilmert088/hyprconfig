@@ -1,36 +1,24 @@
-cat config
 {
   "layer": "top",
   "position": "top",
-  "modules-right": [
-    "clock", 
-    "pulseaudio",
-    "network",
-    "bluetooth",
-    "custom/vpn"
-  ],
-  "modules-center": ["custom/play", "custom/music"],
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
+  "modules-center": ["clock"],
+  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+  "modules-right": ["pulseaudio", "custom/vpn", "network", "bluetooth", "disk", "memory", "cpu"],
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "format": "{icon}",
-    "format-icons" : {
-        "active": "",
-        "default": ""
-        }
+    "persistent-workspaces": {
+            "*": [ 1,2,3,4,5,6 ]
+    }
   },
   "pulseaudio": {
-    "format": "{icon}",
-    "format-alt": "{icon} {volume}%",
+    "format": "{icon} {volume}%",
     "format-icons": {
-       "default": ["", "", ""]
+       "default": ["", "", "", ""]
     },
     "on-click": "pavucontrol"
   },
   "clock": {
-    "format": "{:%d/%m/%Y  %H:%M}",
+    "format": "󰥔 {:%d %b %Y %a, %H:%M}",
+    "interval": 60,
     "timezone": "Europe/Istanbul"
   },
   "network": {
@@ -38,35 +26,49 @@ cat config
     "format-icons": {
       "wifi": "",
       "ethernet": "",
-      "disconnected": "󰤮"
-    }
+      "disconnected": "󰤮",
+      "default": ""
+    },
+    "tooltip-format": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected :(",
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
   },
   "bluetooth": {
-    "format": "{icon}",
-    "format-icons": {
-      "connected": "󰂯",
-      "off": "󰂲",
-      "default": "󰂳"
-   },
+    "format": "󰂯",
+    "format-disabled": "",
+    "format-connected": "󰂱",
+    "tooltip-format": "O devices connected",
+    "tooltip-format-connected": "{num_connections} device(s) connected",
+    "tooltip-format-disabled": "Bluetooth disabled",
     "on-click": "blueman-manager"
   },
-  "custom/music": {
-    "exec": "~/.config/waybar/slide_music.sh",
-    "interval": 0.2,
-    "format": "{}",
-    "on-click": "playerctl --player=spotify play-pause",
-    "on-scroll-up": "playerctl --player=spotify next",
-    "on-scroll-down": "playerctl --player=spotify previous"
-  },
-  "custom/play": {
-   "format": "{}",
-   "exec": "~/.config/waybar/player_status.sh",
-   "interval": 1
-   },
   "custom/vpn": {
     "format": "{}",
     "exec": "~/.config/waybar/vpn_status.sh",
+    "return-type": "json",
+    "tooltip": true,
     "on-click": "~/.config/waybar/vpn.sh",
     "interval": 1
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "tooltip-format": "{percentage} % mem used",
+    "max-length": 10
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}% ",
+    "tooltip-format": "{percentage_used}% used",
+    "unit": "GB",
+    "path": "/",
+    "max-length": 50
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "{}% ",
+    "tooltip-format": "CPU load: {load}%",
+    "max-length": 10
   }
 }
